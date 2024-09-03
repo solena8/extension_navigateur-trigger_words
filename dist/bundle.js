@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("Bonjour depuis TypeScript!")})();
+(()=>{"use strict";console.log("Bonjour depuis TypeScript!"),console.log("Bonjour depuis TypeScript!")})();
