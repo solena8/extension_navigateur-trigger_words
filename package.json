@@ -110,5 +110,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adatechschool/projet-extension-navigateur-team.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adatechschool/projet-extension-navigateur-team/issues"
+  },
+  "homepage": "https://github.com/adatechschool/projet-extension-navigateur-team#readme",
   "description": ""
 }
