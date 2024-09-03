@@ -3,10 +3,14 @@
   "name": "Don't TRIGGER me",
   "version": "1.0",
   "description": "An extension to block and replace certain words in Web pages",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
 
   "action": {
-
+    "default_popup": "index.html",
 
     "default_icon": {
       "128": "icons/icon128.png"
