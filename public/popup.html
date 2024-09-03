@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="../dist/popup.js"></script>
-    <h1>Inspecteur de Page</h1>
-    <button id="extractButton">Inspecter le Texte</button>
-    <div id="result"></div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                width: 300px;
+                padding: 10px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+            }
+            #blockedWordsContainer {
+                margin-top: 10px;
+            }
+            #blockedWords {
+                width: calc(100% - 20px);
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Inspecteur de Page</h1>
+        <button id="extractButton">Inspecter le Texte</button>
+        <button id="blockWordsButton">Créer des mots à bloquer</button>
+        <div id="blockedWordsContainer">
+            <h3>Mots à bloquer:</h3>
+            <textarea
+                id="blockedWords"
+                rows="4"
+                placeholder="Entrez des mots à bloquer, séparés par des virgules"
+            ></textarea>
+            <button id="saveBlockedWords">
+                Sauvegarder les mots à bloquer
+            </button>
+        </div>
+        <div id="result"></div>
+        <script src="../dist/popup.js"></script>
+    </body>
 </html>
