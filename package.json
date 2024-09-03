@@ -3,6 +3,7 @@
     "build": "webpack --mode production"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.270",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
     "webpack": "^5.94.0",

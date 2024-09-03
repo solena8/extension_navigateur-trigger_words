@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "An extension to block and replace certain words in Web pages",
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
-  
+
   "background": {
     "service_worker": "background.js"
   },
@@ -26,5 +26,12 @@
       "matches": ["<all_urls>"],
       "js": ["./bundle.js"]
     }
-  ]
+
+    
+  ],
+
+  "devDependencies": {
+    "@types/chrome" : "^0.0.251",
+    "typescript": "^5.2.2"
+  }
 }
