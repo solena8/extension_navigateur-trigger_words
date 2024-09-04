@@ -1,37 +1,4 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-    // Event listener for the "Extract Text" button
-    const extractButton = document.getElementById(
-        "extractButton"
-    ) as HTMLButtonElement;
-    if (extractButton) {
-        extractButton.addEventListener("click", () => {
-            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                if (tabs[0].id !== undefined) {
-                    chrome.scripting.executeScript(
-                        {
-                            target: { tabId: tabs[0].id },
-                            func: extractTextFromPage, // Inject this function
-                        },
-                        (results) => {
-                            const resultElement = document.getElementById(
-                                "result"
-                            ) as HTMLDivElement;
-                            if (resultElement) {
-                                if (results && results[0].result) {
-                                    resultElement.textContent =
-                                        "Extracted Text: " + results[0].result;
-                                } else {
-                                    resultElement.textContent =
-                                        "No text found!";
-                                }
-                            }
-                        }
-                    );
-                }
-            });
-        });
-    }
-
     // Event listener for the "Save Blocked Words" button
     const saveBlockedWordsButton = document.getElementById(
         "saveBlockedWords"
