@@ -1,0 +1,30 @@
+export function blockWords() {
+    chrome.storage.sync.get(["blockedWords"], (result) => {
+        const blockedWords: string[] = result.blockedWords || [];
+
+        // Recursive function to traverse the DOM and replace text
+        function traverse(node: Node) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                let text = (node as Text).textContent || "";
+                blockedWords.forEach((word) => {
+                    const regex = new RegExp(`\\b${word}\\b`, "gi"); // Create regex for each blocked word
+                    text = text.replace(regex, (match) =>
+                        "*".repeat(match.length)
+                    ); // Replace with asterisks
+                });
+                (node as Text).textContent = text;
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                // Ignore tags that shouldn't be modified
+                if (!["SCRIPT", "STYLE", "NOSCRIPT"].includes(node.nodeName)) {
+                    node.childNodes.forEach(traverse);
+                }
+            }
+        }
+
+        traverse(document.body);
+    });
+}
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    blockWords();
+});
