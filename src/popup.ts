@@ -14,17 +14,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 .filter((word) => word.length > 0);
             chrome.storage.sync.set({ blockedWords: blockedWords }, () => {
                 console.log("Blocked words saved:", blockedWords);
-                alert("Blocked words saved!");
             });
-        });
-    }
-
-    // Event listener for the "Block Words" button
-    const blockWordsButton = document.getElementById(
-        "blockWordsButton"
-    ) as HTMLButtonElement;
-    if (blockWordsButton) {
-        blockWordsButton.addEventListener("click", () => {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 if (tabs[0].id !== undefined) {
                     chrome.scripting.executeScript({
