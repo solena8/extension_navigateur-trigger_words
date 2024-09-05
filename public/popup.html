@@ -4,24 +4,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <style>
-            body {
-                width: 300px;
-                padding: 10px;
-            }
-            button {
-                width: 100%;
-                padding: 10px;
-                margin: 5px 0;
-            }
-            #blockedWordsContainer {
-                margin-top: 10px;
-            }
-            #blockedWords {
-                width: calc(100% - 20px);
-                margin-top: 5px;
-            }
-        </style>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <h1>Inspecteur de Page</h1>
@@ -37,6 +27,17 @@
                 Sauvegarder les mots à bloquer
             </button>
         </div>
+        <input type="text" id="wordInput" placeholder="Enter a word" />
+        <button id="addWordButton">Add Word</button>
+        <div id="wordList"></div>
+
+        <!-- Template for word items -->
+        <template id="wordItemTemplate">
+            <div class="word-item">
+                <span class="word-text"></span>
+                <button class="remove-word-button">✖</button>
+            </div>
+        </template>
         <div id="result"></div>
         <script src="../dist/popup.js"></script>
     </body>
