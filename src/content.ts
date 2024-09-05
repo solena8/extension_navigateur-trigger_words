@@ -1,4 +1,6 @@
 export function blockWords() {
+    let hasBlockedWords = false; // Flag to track if any blocked words are found
+
     chrome.storage.sync.get(["blockedWords"], (result) => {
         const blockedWords: string[] = result.blockedWords || [];
 
@@ -8,9 +10,13 @@ export function blockWords() {
                 let text = (node as Text).textContent || "";
                 blockedWords.forEach((word) => {
                     const regex = new RegExp(`\\b${word}\\b`, "gi"); // Create regex for each blocked word
-                    text = text.replace(regex, (match) =>
-                        "*".repeat(match.length)
-                    ); // Replace with asterisks
+                    if (regex.test(text)) {
+                        hasBlockedWords = true; // Set flag to true if a blocked word is found
+
+                        text = text.replace(regex, (match) =>
+                            "*".repeat(match.length)
+                        );
+                    } // Replace with asterisks
                 });
                 (node as Text).textContent = text;
             } else if (node.nodeType === Node.ELEMENT_NODE) {
@@ -22,6 +28,9 @@ export function blockWords() {
         }
 
         traverse(document.body);
+        if (hasBlockedWords) {
+            alert("Cette page contient des mots bloqués !");
+        }
     });
 }
 
