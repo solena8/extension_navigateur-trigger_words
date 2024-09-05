@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -21,6 +20,9 @@
                 width: calc(100% - 20px);
                 margin-top: 5px;
             }
+            #wordList {
+                margin-top: 10px;
+            }
         </style>
     </head>
     <body>
@@ -38,6 +40,38 @@
             </button>
         </div>
         <div id="result"></div>
-        <script src="../dist/popup.js"></script>
+        <div id="wordList"></div>
+
+        <script>
+            document
+                .getElementById("saveBlockedWords")
+                .addEventListener("click", function () {
+                    const blockedWords = document
+                        .getElementById("blockedWords")
+                        .value.split(",");
+                    const wordListDiv = document.getElementById("wordList");
+
+                    // Clear previous list
+                    wordListDiv.innerHTML = "";
+
+                    // Create list with checkboxes
+                    blockedWords.forEach(function (word) {
+                        word = word.trim();
+                        if (word) {
+                            const label = document.createElement("label");
+                            const checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.value = word;
+
+                            label.appendChild(checkbox);
+                            label.appendChild(document.createTextNode(word));
+
+                            const br = document.createElement("br");
+                            wordListDiv.appendChild(label);
+                            wordListDiv.appendChild(br);
+                        }
+                    });
+                });
+        </script>
     </body>
 </html>
