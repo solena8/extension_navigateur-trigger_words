@@ -13,7 +13,6 @@ export function blockWords() {
                     text = text.replace(regex, (match) =>
                         "*".repeat(match.length)
                     ); // Replace with asterisks
-                    const regex = new RegExp(`\\b${word}\\b`, "gi"); // Create regex for each blocked word
                     if (regex.test(text)) {
                         hasBlockedWords = true; // Set flag to true if a blocked word is found
 
