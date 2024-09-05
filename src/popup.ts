@@ -1,4 +1,5 @@
 import { blockWords } from "./content";
+import { fetchJSONData } from "./content"; 
 
 window.addEventListener("DOMContentLoaded", (event) => {
     // Event listener for the "Save Blocked Words" button
@@ -21,6 +22,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         target: { tabId: tabs[0].id },
                         func: blockWords, // Inject this function
                     });
+                    fetchJSONData(); // Inject this function
+                    
                 }
             });
         });
