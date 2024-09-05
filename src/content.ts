@@ -9,6 +9,10 @@ export function blockWords() {
             if (node.nodeType === Node.TEXT_NODE) {
                 let text = (node as Text).textContent || "";
                 blockedWords.forEach((word) => {
+                    const regex = new RegExp(`\\b${word}\\w{0,2}\\b`, "gi"); // Create regex for each blocked word
+                    text = text.replace(regex, (match) =>
+                        "*".repeat(match.length)
+                    ); // Replace with asterisks
                     const regex = new RegExp(`\\b${word}\\b`, "gi"); // Create regex for each blocked word
                     if (regex.test(text)) {
                         hasBlockedWords = true; // Set flag to true if a blocked word is found
