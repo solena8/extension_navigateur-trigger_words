@@ -16,26 +16,16 @@
     <body>
         <h1>Inspecteur de Page</h1>
         <div id="blockedWordsContainer">
-            <p>
-                Mots à bloquer:<br />Entrez des mots à bloquer, séparés par des
-                virgules.
-            </p>
+            <h3>Mots à bloquer:</h3>
+            <p>Entrez des mots à bloquer, séparés par des virgules.</p>
             <textarea id="blockedWords" rows="4" placeholder=""></textarea>
             <button id="saveBlockedWords">
                 Sauvegarder les mots à bloquer
             </button>
-            <button id="openOptions">Ouvrir les options</button>
+            <button id="openOptions">Options</button>
         </div>
         <div id="wordList"></div>
 
-        <!-- Template for word items -->
-        <template id="wordItemTemplate">
-            <div class="word-item">
-                <span class="word-text"></span>
-                <button class="remove-word-button">✖</button>
-            </div>
-        </template>
-        <div id="result"></div>
         <script src="../dist/popup.js"></script>
     </body>
 </html>
