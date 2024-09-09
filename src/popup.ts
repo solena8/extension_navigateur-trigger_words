@@ -1,4 +1,26 @@
 import { blockWords } from "./content";
+import { fetchJSONData } from "./getTriggerWordData"; 
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    fetchJSONData();
+    
+    // Event listener for the "Save Blocked Words" button
+    const saveBlockedWordsButton = document.getElementById(
+        "saveBlockedWords"
+    ) as HTMLButtonElement;
+
+    if (saveBlockedWordsButton) {
+        saveBlockedWordsButton.addEventListener("click", () => {
+            const blockedWordsInput = document.getElementById(
+                "blockedWords"
+            ) as HTMLTextAreaElement;
+
+            const blockedWords = blockedWordsInput.value
+                .split(",")
+                .map((word) => word.trim())
+                .filter((word) => word.length > 0);
+                
+            chrome.storage.sync.set({ blockedWords: blockedWords });
 
 // DOM elements
 const saveBlockedWordsButton = document.getElementById(
@@ -87,8 +109,8 @@ function addWord(newWords: string[]): void {
                         target: { tabId: tabs[0].id },
                         func: blockWords,
                     });
-                } else {
-                    console.error("No active tab found!");
+                    // fetchJSONData(); // Inject this function
+                    
                 }
             });
         });

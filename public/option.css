@@ -1,0 +1,67 @@
+body {
+    background-color: #333;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px; /* Limite la largeur du contenu */
+}
+
+h3 {
+    color: white;
+    text-align: center;
+}
+
+#wordInput {
+    margin-top: 100px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#addWordButton {
+    padding: 10px 20px;
+    background-color: #8ab4f8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addWordButton:hover {
+    background-color: #79aaf9;
+}
+
+.word-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+    width: 400px;
+}
+
+.word-text {
+    font-size: 16px;
+}
+
+.remove-word-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+}
