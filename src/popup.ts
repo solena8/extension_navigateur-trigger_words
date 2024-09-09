@@ -1,7 +1,9 @@
 import { blockWords } from "./content";
-import { fetchJSONData } from "./content"; 
+import { fetchJSONData } from "./getTriggerWordData"; 
 
 window.addEventListener("DOMContentLoaded", (event) => {
+    fetchJSONData();    
+    
     // Event listener for the "Save Blocked Words" button
     const saveBlockedWordsButton = document.getElementById(
         "saveBlockedWords"
@@ -22,7 +24,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         target: { tabId: tabs[0].id },
                         func: blockWords, // Inject this function
                     });
-                    fetchJSONData(); // Inject this function
+                    // fetchJSONData(); // Inject this function
                     
                 }
             });

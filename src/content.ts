@@ -1,14 +1,3 @@
-import { readFileSync } from 'fs';
-
-export function fetchJSONData() {
-
-    const banWords: string = readFileSync('../assets/trigger_db.json', 'utf-8');
-
-    console.log(banWords);
-    
-
-}
-
 export function blockWords() {
     let HasBlockedWords: boolean = false;
     chrome.storage.sync.get(["blockedWords"], (result) => {
@@ -47,7 +36,7 @@ export function blockWords() {
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
-    fetchJSONData();
+    // fetchJSONData();
     blockWords();
 });
 
