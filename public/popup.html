@@ -15,20 +15,17 @@
     </head>
     <body>
         <h1>Inspecteur de Page</h1>
-        <button id="blockWordsButton">Créer des mots à bloquer</button>
         <div id="blockedWordsContainer">
-            <h3>Mots à bloquer:</h3>
-            <textarea
-                id="blockedWords"
-                rows="4"
-                placeholder="Entrez des mots à bloquer, séparés par des virgules"
-            ></textarea>
+            <p>
+                Mots à bloquer:<br />Entrez des mots à bloquer, séparés par des
+                virgules.
+            </p>
+            <textarea id="blockedWords" rows="4" placeholder=""></textarea>
             <button id="saveBlockedWords">
                 Sauvegarder les mots à bloquer
             </button>
+            <button id="openOptions">Ouvrir les options</button>
         </div>
-        <input type="text" id="wordInput" placeholder="Enter a word" />
-        <button id="addWordButton">Add Word</button>
         <div id="wordList"></div>
 
         <!-- Template for word items -->
