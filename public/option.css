@@ -28,7 +28,7 @@ h3 {
     margin-right: 10px;
 }
 
-#addWordButton {
+button {
     padding: 10px 20px;
     background-color: #8ab4f8;
     color: white;
@@ -37,7 +37,7 @@ h3 {
     cursor: pointer;
 }
 
-#addWordButton:hover {
+button:hover {
     background-color: #79aaf9;
 }
 

@@ -1,7 +1,5 @@
-import { fetchJSONData } from "./getTriggerWordData";
-
 window.addEventListener("DOMContentLoaded", (event) => {
-    fetchJSONData();
+  
     // Event listener for the "Open Options" button
     const openOptionsButton = document.getElementById(
         "openOptions"
@@ -12,3 +10,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 });
+
