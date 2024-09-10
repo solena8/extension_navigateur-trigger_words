@@ -2,9 +2,7 @@ export function fetchJSONData(): Promise<any> {
     return fetch(chrome.runtime.getURL('../assets/trigger_db.json'))
         .then(response => response.json())
         .then(data => {
-            console.log(Object.keys(data.categories[0]));
-            
-            return data;
+            return data.categories;
         })
         .catch(error => {
             console.error('Erreur lors du chargement du JSON:', error);
@@ -13,23 +11,20 @@ export function fetchJSONData(): Promise<any> {
 }
 
 export function afficherAvis(data: any) {
+
     const categorie = document.createElement("p");
-    
-    for (let i = 0; i < Object.keys(data.categories).length; i++) {
-        categorie.innerHTML += `<b>${data.categories[i]}:</b><br>`;
+
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+
+            const value = data[key as keyof typeof data];
+            if (typeof value === 'object') {
+                categorie.innerHTML += `${key}: ${JSON.stringify(value, null, 2)}`;
+            } else {
+                console.log(`${key}: ${value}`);
+            }
+        }
     }
+
     document.getElementById("trigger_list")!.appendChild(categorie);
 }
-
-fetchJSONData().then(data => {
-    window.addEventListener("DOMContentLoaded", (event) => {
-        
-        const header = document.getElementById('trigger_list');
-        if (header) {
-            afficherAvis(data.categories);
-        }
-    });
-
-}).catch(error => {
-    console.error('Erreur lors du chargement du JSON:', error);
-});

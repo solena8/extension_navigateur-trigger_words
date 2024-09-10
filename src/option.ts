@@ -1,4 +1,10 @@
+
+import { fetchJSONData } from "./getTriggerWordData";
+import { afficherAvis } from "./getTriggerWordData";
+
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const wordInput = document.getElementById("wordInput") as HTMLInputElement;
     const addWordButton = document.getElementById(
         "addWordButton"
@@ -39,5 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
             // Efface la zone de texte après l'ajout
             wordInput.value = "";
         }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const showOption = document.getElementById(
+        "showTriggerOption"
+    ) as HTMLButtonElement;
+
+    showOption.addEventListener("click", () => {
+
+        fetchJSONData().then(data => {
+            const header = document.getElementById('trigger_list');
+            if (header) {
+                afficherAvis(data);
+            }
+        }).catch(error => {
+            console.error('Erreur lors du chargement du JSON:', error);
+        });
     });
 });

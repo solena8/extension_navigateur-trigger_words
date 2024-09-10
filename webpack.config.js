@@ -5,7 +5,8 @@ module.exports = {
     popup: './src/popup.ts',
     background: './src/background.ts',
     option: './src/option.ts',
-    content: './src/content.ts'
+    content: './src/content.ts',
+    getTriggerWordData: './src/getTriggerWordData.ts'
   },
   output: {
     filename: '[name].js',
