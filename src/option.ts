@@ -183,24 +183,6 @@ saveBlockedWordsButton.addEventListener("click", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const showOption = document.getElementById(
-        "showTriggerOption"
-    ) as HTMLButtonElement;
-
-    showOption.addEventListener("click", () => {
-
-        fetchJSONData().then(data => {
-            const header = document.getElementById('trigger_list');
-            if (header) {
-                afficherAvis(data);
-            }
-        }).catch(error => {
-            console.error('Erreur lors du chargement du JSON:', error);
-        });
-    });
-});
 // Display words when the popup opens
 displaySavedWords();
 

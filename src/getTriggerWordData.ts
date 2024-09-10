@@ -12,19 +12,19 @@ export function fetchJSONData(): Promise<any> {
 
 export function afficherAvis(data: any) {
 
+    document.getElementById("trigger_list")!.innerHTML = ``;
+    
     const categorie = document.createElement("p");
 
-    for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-
-            const value = data[key as keyof typeof data];
-            if (typeof value === 'object') {
-                categorie.innerHTML += `${key}: ${JSON.stringify(value, null, 2)}`;
-            } else {
-                console.log(`${key}: ${value}`);
-            }
-        }
-    }
+    for (const [index, [key, value]] of Object.entries(Object.entries(data))) {
+        categorie.innerHTML += ``;
+        categorie.innerHTML += `
+            <div>
+            <input type="checkbox" id="${key}" name="categorie"/>
+            <label for="categorie">${key}</label>
+            </div>
+            </br>`;
+      }
 
     document.getElementById("trigger_list")!.appendChild(categorie);
 }

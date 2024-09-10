@@ -1,7 +1,7 @@
 {
     "categories": {
-        "1. Traumatismes ou abus": {
-            "a) Violence": [
+        "Traumatismes ou abus": {
+            "Violence": [
                 "brutalité",
                 "force",
                 "cruauté",
@@ -26,7 +26,7 @@
                 "destruction",
                 "domination"
             ],
-            "b) Agression": [
+            "Agression": [
                 "attaque",
                 "hostilité",
                 "confrontation",
@@ -50,7 +50,7 @@
                 "braquage",
                 "intimidation"
             ],
-            "c) Harcèlement": [
+            "Harcèlement": [
                 "intimidation",
                 "persécution",
                 "pression",
@@ -72,7 +72,7 @@
                 "surveillance",
                 "chantage"
             ],
-            "d) Viol": [
+            "Viol": [
                 "agression sexuelle",
                 "violence sexuelle",
                 "contrainte",
@@ -92,8 +92,8 @@
                 "exaction"
             ]
         },
-        "2. Décès": {
-            "a) Mort": [
+        "Décès": {
+            "Mort": [
                 "décès",
                 "disparition",
                 "deuil",
@@ -120,7 +120,7 @@
                 "décédés",
                 "décédées"
             ],
-            "b) Deuil": [
+            "Deuil": [
                 "chagrin",
                 "souffrance",
                 "peine",
@@ -138,7 +138,7 @@
                 "détresse",
                 "solitude"
             ],
-            "c) Rupture": [
+            "Rupture": [
                 "séparation",
                 "désunion",
                 "éclatement",
@@ -150,8 +150,8 @@
                 "rompues"
             ]
         },
-        "3. Santé mentale": {
-            "a) Dépression": [
+        "Santé mentale": {
+            "Dépression": [
                 "tristesse",
                 "mélancolie",
                 "désespoir",
@@ -171,7 +171,7 @@
                 "prostration",
                 "détresse"
             ],
-            "b) Anxiété": [
+            "Anxiété": [
                 "inquiétude",
                 "tension",
                 "stress",
@@ -188,7 +188,7 @@
                 "tremblement",
                 "détresse"
             ],
-            "c) Suicide": [
+            "Suicide": [
                 "désespoir",
                 "mort",
                 "auto-destruction",
@@ -207,7 +207,7 @@
                 "immolation",
                 "autolyse"
             ],
-            "d) Autodestruction": [
+            "Autodestruction": [
                 "suicide",
                 "automutilation",
                 "dépression",
@@ -224,8 +224,8 @@
                 "autopunition"
             ]
         },
-        "4. Discriminations ou préjugés": {
-            "a) Racisme": [
+        "Discriminations ou préjugés": {
+            "Racisme": [
                 "discrimination",
                 "xénophobie",
                 "préjugé",
@@ -241,7 +241,7 @@
                 "exclusion",
                 "stéréotype racial"
             ],
-            "b) Sexisme": [
+            "Sexisme": [
                 "discrimination",
                 "préjugé",
                 "misogynie",
@@ -255,7 +255,7 @@
                 "discrimination de genre",
                 "injustice"
             ],
-            "c) Homophobie": [
+            "Homophobie": [
                 "intolérance",
                 "discrimination",
                 "haine",
@@ -266,7 +266,7 @@
                 "homophobique",
                 "préjugés"
             ],
-            "d) Xénophobie": [
+            "Xénophobie": [
                 "racisme",
                 "intolérance",
                 "haine",
@@ -281,7 +281,7 @@
                 "méfiance",
                 "hostilité"
             ],
-            "e) Discrimination": [
+            "Discrimination": [
                 "inégalité",
                 "exclusion",
                 "préjugé",
@@ -297,8 +297,8 @@
                 "injustice"
             ]
         },
-        "5. Situations de crise ou d'urgence": {
-            "a) Accident": [
+        "Situations de crise ou d'urgence": {
+            "Accident": [
                 "collision",
                 "catastrophe",
                 "incident",
@@ -310,7 +310,7 @@
                 "catastrophe routière",
                 "accident de travail"
             ],
-            "b) Catastrophe": [
+            "Catastrophe": [
                 "désastre",
                 "calamité",
                 "tragédie",
@@ -325,7 +325,7 @@
                 "fléau",
                 "désastre naturel"
             ],
-            "c) Guerre": [
+            "Guerre": [
                 "conflit",
                 "bataille",
                 "combat",
@@ -342,7 +342,7 @@
                 "offensive",
                 "opération militaire"
             ],
-            "d) Famine": [
+            "Famine": [
                 "privation",
                 "malnutrition",
                 "crise alimentaire",
@@ -356,7 +356,7 @@
                 "disette"
                 
             ],
-            "e) Incendie": [
+            "Incendie": [
                 "feu",
                 "flamme",
                 "embrasement",
@@ -376,15 +376,15 @@
                 "conflagration"
             ]
         },
-        "6. Phobies spécifiques": {
-            "a) Araignées": [
+        "Phobies spécifiques": {
+            "Araignées": [
                 "Araignée",
                 "arachnophobie",
                 "huit pattes",
                 "arachnéen",
                 "arachnophobique"
             ],
-            "b) Claustrophobie": [
+            "Claustrophobie": [
                 "espace restreint",
                 "enfermé",
                 "oppression",
@@ -394,7 +394,7 @@
                 "claustrophobique",
                 "claustrophobie"
             ],
-            "c) Serpents": [
+            "Serpents": [
                 "reptile",
                 "venin",
                 "constricteur",
@@ -403,7 +403,7 @@
                 "serpentaire",
                 "serpentiforme"
             ],
-            "d) Hauteurs": [
+            "Hauteurs": [
                 "vertige",
                 "altitude",
                 "vide",
