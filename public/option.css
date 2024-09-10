@@ -35,6 +35,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
@@ -44,9 +45,11 @@ button:hover {
 #blockedWordsContainer {
     margin-top: 10px;
     background-color: #333;
+    display: flex;
 }
 #blockedWords {
-    width: calc(50% - 20px);
+    width: calc(25% - 20px);
+    height: 20px;
     margin-top: 5px;
     padding: 10px;
     background-color: #333;
@@ -55,12 +58,14 @@ button:hover {
     border-radius: 10px;
 }
 #saveBlockedWords {
-    padding: 10px 20px;
+    padding: 5px 10px; /* Réduction du padding */
     background-color: #8ab4f8;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 20px;
+    font-size: 14px; /* Taille de police réduite */
 }
 
 .word-item {
@@ -73,7 +78,8 @@ button:hover {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
-    width: 400px;
+    width: 200px;
+    height: 20px;
 }
 
 .word-text {
