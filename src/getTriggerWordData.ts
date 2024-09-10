@@ -22,7 +22,7 @@ export function afficherAvis(data: any) {
             <div>
             <input type="checkbox" id="${key}" name="categorie"/>
             <label for="categorie">${key}</label>
-            <button onclick="GFG_click(this.id)" class="subCategorie" id="${index + 1}">test</button>
+            <button onclick="GFG_click(this.id)" class="subCategorie" id="${index}">test</button>
             </div>
             </br>`;
       }
@@ -30,7 +30,20 @@ export function afficherAvis(data: any) {
     document.getElementById("trigger_list")!.appendChild(categorie);
 }
 
-function displaySubCategorie() {
-    console.log("log");
+export function GFG_click(clicked: any) { console.log(clicked); };
+
+
+
+const buttonGroup = document.getElementById("trigger_list");
+const buttonGroupPressed = (e: any) => { 
+
+    const isButton = e.target.nodeName === 'BUTTON';
     
+    if(!isButton) {
+      return
+    }
+    console.log(e.target.id);
+
 }
+
+buttonGroup!.addEventListener("click", buttonGroupPressed);

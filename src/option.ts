@@ -205,21 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    const showSubCategorieOption = document.getElementsByClassName(
-        "subCategorie"
-    ) as unknown as HTMLButtonElement;
-    
-    showSubCategorieOption.addEventListener("click", () => {
 
-        fetchJSONData().then(data => {
-            const header = document.getElementById('trigger_list');
-            if (header) {
-                afficherAvis(data);
-            }
-        }).catch(error => {
-            console.error('Erreur lors du chargement du JSON:', error);
-        });
-    });
-});
