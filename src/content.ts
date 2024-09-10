@@ -1,9 +1,9 @@
 export function blockWords() {
     let hasBlockedWords = false;
 
-    // Check if we are in the popup context
+    // Check if we are in the popup 
     if (document.getElementById('wordList')) {
-        return; // Skip processing if it's the popup context
+        return; // Skip processing if it's the popup 
     }
 
     chrome.storage.sync.get(["blockedWords"], (result) => {
