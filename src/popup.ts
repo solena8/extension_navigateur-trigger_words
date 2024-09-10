@@ -21,6 +21,29 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 .filter((word) => word.length > 0);
                 
             chrome.storage.sync.set({ blockedWords: blockedWords });
+            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                if (tabs[0].id !== undefined) {
+                    chrome.scripting.executeScript({
+                        target: { tabId: tabs[0].id },
+                        func: blockWords, // Inject this function
+                    });
+                    
+                }
+            });
+        });
+    }
+
+    // Event listener for the "Open Options" button
+    const openOptionsButton = document.getElementById(
+        "openOptions"
+    ) as HTMLButtonElement;
+    if (openOptionsButton) {
+        openOptionsButton.addEventListener("click", () => {
+            chrome.tabs.create({ url: "public/options.html" });
+        });
+    }
+});
+
 
 // DOM elements
 const saveBlockedWordsButton = document.getElementById(
@@ -109,8 +132,8 @@ function addWord(newWords: string[]): void {
                         target: { tabId: tabs[0].id },
                         func: blockWords,
                     });
-                    // fetchJSONData(); // Inject this function
-                    
+                } else {
+                    console.error("No active tab found!");
                 }
             });
         });
