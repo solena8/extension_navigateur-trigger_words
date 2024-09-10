@@ -28,6 +28,25 @@
             <button id="showTriggerOption">Choisir par catégorie</button>
             <div id="trigger_list"></div>
         </div>
+        <div id="blockedWordsContainer">
+            <h3>Mots à bloquer:</h3>
+            <p>Entrez des mots à bloquer, séparés par des virgules.</p>
+            <textarea id="blockedWords" rows="4" placeholder=""></textarea>
+            <button id="saveBlockedWords">
+                Sauvegarder les mots à bloquer
+            </button>
+        </div>
+        <div id="wordList"></div>
+
+        <!-- Template for word items -->
+        <template id="wordItemTemplate">
+            <div class="word-item">
+                <span class="word-text"></span>
+                <button class="remove-word-button">✖</button>
+            </div>
+        </template>
+        <script src="../dist/popup.js"></script>
+        <script src="../dist/content.js"></script>
         <script src="../dist/option.js"></script>
     </body>
 </html>
