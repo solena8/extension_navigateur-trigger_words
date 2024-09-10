@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,22 +17,12 @@
         <h1>Inspecteur de Page</h1>
         <div id="blockedWordsContainer">
             <h3>Mots à bloquer:</h3>
-            <p>Entrez des mots à bloquer, séparés par des virgules.</p>
-            <textarea id="blockedWords" rows="4" placeholder=""></textarea>
-            <button id="saveBlockedWords">
-                Sauvegarder les mots à bloquer
-            </button>
+            <p>
+                Si vous souhaitez ajouter des mots à bloquer, cliqué sur le
+                bouton option.
+            </p>
             <button id="openOptions">Options</button>
         </div>
-        <div id="wordList"></div>
-
-    <!-- Template for word items -->
-    <template id="wordItemTemplate">
-        <div class="word-item">
-            <span class="word-text"></span>
-            <button class="remove-word-button">✖</button>
-        </div>
-    </template>
-    <script src="../dist/popup.js"></script>
-</body>
+        <script src="../dist/popup.js"></script>
+    </body>
 </html>
