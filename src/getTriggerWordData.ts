@@ -22,9 +22,15 @@ export function afficherAvis(data: any) {
             <div>
             <input type="checkbox" id="${key}" name="categorie"/>
             <label for="categorie">${key}</label>
+            <button onclick="GFG_click(this.id)" class="subCategorie" id="${index + 1}">test</button>
             </div>
             </br>`;
       }
 
     document.getElementById("trigger_list")!.appendChild(categorie);
+}
+
+function displaySubCategorie() {
+    console.log("log");
+    
 }

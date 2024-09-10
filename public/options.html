@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="option.css" />
-        <title>Options</title>
-    </head>
-    <body>
-        <h1>Options de l'extension</h1>
 
-        <!-- Template pour l'affichage des mots -->
-        <template id="wordItemTemplate">
-            <div class="word-item">
-                <span class="word-text"></span>
-                <button class="remove-word-button">✖</button>
-            </div>
-        </template>
-        <div id="result"></div>
-        <div>
-            <button id="showTriggerOption">Choisir par catégorie</button>
-            <fieldset id="trigger_list"></fieldset>
-        </div>
-        <div>
-            <p>Entrez des mots à bloquer, séparés par des virgules.</p>
-        </div>
-        <div id="blockedWordsContainer">
-            <textarea id="blockedWords" rows="4" placeholder=""></textarea>
-            <button id="saveBlockedWords">Sauvegarder</button>
-        </div>
-        <div id="wordList"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="option.css" />
+    <title>Options</title>
+</head>
 
-        <script src="../dist/popup.js"></script>
-        <script src="../dist/content.js"></script>
-        <script src="../dist/option.js"></script>
-    </body>
+<body>
+    <h1>Options de l'extension</h1>
+
+    <!-- Template pour l'affichage des mots -->
+    <template id="wordItemTemplate">
+        <div class="word-item">
+            <span class="word-text"></span>
+            <button class="remove-word-button">✖</button>
+        </div>
+    </template>
+    <div id="result"></div>
+    <div>
+        <button id="showTriggerOption">Choisir par catégorie</button>
+        <div id="trigger_list"></div>
+    </div>
+    <div>
+        <p>Entrez des mots à bloquer, séparés par des virgules.</p>
+    </div>
+    <div id="blockedWordsContainer">
+        <textarea id="blockedWords" rows="4" placeholder=""></textarea>
+        <button id="saveBlockedWords">Sauvegarder</button>
+    </div>
+    <div id="wordList"></div>
+
+    <script src="../dist/popup.js"></script>
+    <script src="../dist/content.js"></script>
+    <script src="../dist/option.js"></script>
+</body>
+
 </html>
