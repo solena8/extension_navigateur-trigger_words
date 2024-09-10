@@ -41,6 +41,28 @@ button:hover {
     background-color: #79aaf9;
 }
 
+#blockedWordsContainer {
+    margin-top: 10px;
+    background-color: #333;
+}
+#blockedWords {
+    width: calc(50% - 20px);
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: 2px solid #8ab4f8;
+    border-radius: 10px;
+}
+#saveBlockedWords {
+    padding: 10px 20px;
+    background-color: #8ab4f8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .word-item {
     display: flex;
     justify-content: space-between;

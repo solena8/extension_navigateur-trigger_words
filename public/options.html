@@ -9,13 +9,6 @@
     <body>
         <h1>Options de l'extension</h1>
 
-        <!-- Zone de texte et bouton -->
-        <input type="text" id="wordInput" placeholder="Tapez un mot" />
-        <button id="addWordButton">Ajouter un mot</button>
-
-        <!-- Conteneur pour la liste des mots -->
-        <div id="result"></div>
-
         <!-- Template pour l'affichage des mots -->
         <template id="wordItemTemplate">
             <div class="word-item">
@@ -29,7 +22,6 @@
             <fieldset id="trigger_list"></fieldset>
         </div>
         <div id="blockedWordsContainer">
-            <h3>Mots à bloquer:</h3>
             <p>Entrez des mots à bloquer, séparés par des virgules.</p>
             <textarea id="blockedWords" rows="4" placeholder=""></textarea>
             <button id="saveBlockedWords">
