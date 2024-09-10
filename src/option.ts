@@ -1,10 +1,15 @@
+import { fetchJSONData } from "./getTriggerWordData";
+import { afficherAvis } from "./getTriggerWordData";
 import { blockWords } from "./content";
 
 window.addEventListener("DOMContentLoaded", (event) => {
+    const wordInput = document.getElementById("wordInput") as HTMLInputElement;
+    const addWordButton = document.getElementById("addWordButton") as HTMLButtonElement;
+    
     // Event listener for the "Save Blocked Words" button
     const saveBlockedWordsButton = document.getElementById(
-        "saveBlockedWords"
-    ) as HTMLButtonElement;
+            "saveBlockedWords"
+        ) as HTMLButtonElement;
 
     if (saveBlockedWordsButton) {
         saveBlockedWordsButton.addEventListener("click", () => {
@@ -33,11 +38,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
                     });
                 }
             });
-            
+
         });
     }
-
-
 });
 
 // DOM elements
@@ -109,13 +112,13 @@ function addWord(newWords: string[]): void {
         chrome.storage.sync.set({ blockedWords: updatedBlockedWords }, () => {
             chrome.runtime.lastError
                 ? console.error(
-                      "Error saving blocked words:",
-                      chrome.runtime.lastError
-                  )
+                    "Error saving blocked words:",
+                    chrome.runtime.lastError
+                )
                 : console.log(
-                      "Blocked words saved to storage:",
-                      updatedBlockedWords
-                  );
+                    "Blocked words saved to storage:",
+                    updatedBlockedWords
+                );
 
             // Update the display
             displaySavedWords();
@@ -144,9 +147,9 @@ function removeWord(wordToRemove: string): void {
         chrome.storage.sync.set({ blockedWords: updatedWords }, () => {
             chrome.runtime.lastError
                 ? console.error(
-                      "Error saving blocked words:",
-                      chrome.runtime.lastError
-                  )
+                    "Error saving blocked words:",
+                    chrome.runtime.lastError
+                )
                 : console.log("Blocked words updated:", updatedWords);
 
             // Update the display
@@ -176,9 +179,46 @@ saveBlockedWordsButton.addEventListener("click", () => {
             .filter((word) => word.length > 0);
 
         addWord(newBlockedWords);
-        blockedWordsInput.value = ""; // Clear the input field
+        blockedWordsInput.value = "";
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const showOption = document.getElementById(
+        "showTriggerOption"
+    ) as HTMLButtonElement;
+
+    showOption.addEventListener("click", () => {
+
+        fetchJSONData().then(data => {
+            const header = document.getElementById('trigger_list');
+            if (header) {
+                afficherAvis(data);
+            }
+        }).catch(error => {
+            console.error('Erreur lors du chargement du JSON:', error);
+        });
+    });
+});
 // Display words when the popup opens
 displaySavedWords();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const showOption = document.getElementById(
+        "showTriggerOption"
+    ) as HTMLButtonElement;
+
+    showOption.addEventListener("click", () => {
+
+        fetchJSONData().then(data => {
+            const header = document.getElementById('trigger_list');
+            if (header) {
+                afficherAvis(data);
+            }
+        }).catch(error => {
+            console.error('Erreur lors du chargement du JSON:', error);
+        });
+    });
+});
