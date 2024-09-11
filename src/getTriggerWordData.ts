@@ -1,3 +1,7 @@
+import { addWordList } from "./getListTrigger";
+import { removeWordList } from "./getListTrigger";
+import { getSubcategories } from "./getListTrigger";
+
 export function fetchJSONData(): Promise<any> {
 
     return fetch(chrome.runtime.getURL("./assets/trigger_db.json"))
@@ -47,8 +51,17 @@ const buttonGroupPressed = (e: any) => {
     if (getName === "validateOptionButton") {
         var checkboxList = document.querySelectorAll('input[type=checkbox]:checked');
         let formattedCheckboxList = Array.from(checkboxList).map(checkbox => checkbox.id);
-        formattedCheckboxList.pop();
-        console.log(formattedCheckboxList);
+        formattedCheckboxList.pop();        
+        
+        fetchJSONData()
+        .then((jsonData) => {
+                let subcategories = getSubcategories(jsonData, formattedCheckboxList);
+                addWordList(subcategories)
+                console.log(subcategories);
+            })
+            .catch((error) => {
+                console.error("Erreur lors du chargement du JSON:", error);
+            });
         return;
     }
 
@@ -93,3 +106,4 @@ function afficherSousCategorie(jsonData: any, categorieCible: string) {
         console.error(`Catégorie "${categorieCible}" non trouvée.`);
     }
 }
+
