@@ -19,6 +19,12 @@
         <div id="result"></div>
         <div>
             <button id="showTriggerOption">Choisir par catégorie</button>
+            <button>Flouter les images<label class="switch">
+                <input type="checkbox" id="blurButton">
+                <span class="slider round"></span>
+                
+            </label></button>
+
             <div id="trigger_list"></div>
         </div>
         <div id="blockedWordsContainer">
@@ -37,6 +43,7 @@
                 <button class="remove-word-button">✖</button>
             </div>
         </template>
+        <script src="../dist/blurr_images.js"></script>
         <script src="../dist/popup.js"></script>
         <script src="../dist/content.js"></script>
         <script src="../dist/option.js"></script>

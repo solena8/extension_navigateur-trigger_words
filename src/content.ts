@@ -1,14 +1,19 @@
+import { blurrImages } from "./blurr_images";
+
+
+
 export function blockWords() {
     let hasBlockedWords = false;
-    let blockedWordCount = 0; // Compteur pour le nombre de mots bloqués
+    let blockedWordCount = 0; // Counter for blocked words
 
     // Check if we are in the popup
     if (document.getElementById("wordList")) {
         return; // Skip processing if it's the popup
     }
 
-    chrome.storage.sync.get(["blockedWords"], (result) => {
+    chrome.storage.sync.get(["blockedWords", "blurButtonToggled"], (result) => {
         const blockedWords: string[] = result.blockedWords || [];
+        const isBlurToggled: boolean = result.blurButtonToggled || false;
 
         function traverse(node: Node) {
             if (node.nodeType === Node.TEXT_NODE) {
@@ -42,7 +47,7 @@ export function blockWords() {
                     const matches = text.match(regex);
                     if (matches) {
                         hasBlockedWords = true;
-                        blockedWordCount += matches.length; // Ajoute le nombre de correspondances trouvées
+                        blockedWordCount += matches.length; // Count the number of matches found
                         text = text.replace(regex, (match) =>
                             "*".repeat(match.length)
                         );
@@ -59,9 +64,14 @@ export function blockWords() {
         // Traverse all nodes in the body
         traverse(document.body);
 
-        // Si des mots bloqués ont été trouvés, afficher le nombre dans l'alerte
+        // If blocked words were found, show an alert
         if (hasBlockedWords) {
             alert(`Cette page contient ${blockedWordCount} mot(s) bloqué(s) !`);
+        }
+
+        // Call blurrImages if the blur button is toggled
+        if (isBlurToggled) {
+            blurrImages();
         }
     });
 }
