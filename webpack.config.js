@@ -7,6 +7,7 @@ module.exports = {
         content: "./src/content.ts",
         blurr_images: "./src/blurr_images.ts",
         getTriggerWordData: "./src/getTriggerWordData.ts",
+        getListTrigger: "./src/getListTrigger.ts"
 
     },
     output: {

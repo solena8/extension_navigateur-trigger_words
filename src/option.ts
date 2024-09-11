@@ -3,10 +3,7 @@ import { displayTriggerCategorie } from "./getTriggerWordData";
 import { blockWords } from "./content";
 
 window.addEventListener("DOMContentLoaded", (event) => {
-    const wordInput = document.getElementById("wordInput") as HTMLInputElement;
-    const addWordButton = document.getElementById(
-        "addWordButton"
-    ) as HTMLButtonElement;
+
     // Event listener for the "Save Blocked Words" button
     const saveBlockedWordsButton = document.getElementById(
         "saveBlockedWords"
@@ -113,13 +110,13 @@ function addWord(newWords: string[]): void {
         chrome.storage.sync.set({ blockedWords: updatedBlockedWords }, () => {
             chrome.runtime.lastError
                 ? console.error(
-                      "Error saving blocked words:",
-                      chrome.runtime.lastError
-                  )
+                    "Error saving blocked words:",
+                    chrome.runtime.lastError
+                )
                 : console.log(
-                      "Blocked words saved to storage:",
-                      updatedBlockedWords
-                  );
+                    "Blocked words saved to storage:",
+                    updatedBlockedWords
+                );
 
             // Update the display
             displaySavedWords();
@@ -148,9 +145,9 @@ function removeWord(wordToRemove: string): void {
         chrome.storage.sync.set({ blockedWords: updatedWords }, () => {
             chrome.runtime.lastError
                 ? console.error(
-                      "Error saving blocked words:",
-                      chrome.runtime.lastError
-                  )
+                    "Error saving blocked words:",
+                    chrome.runtime.lastError
+                )
                 : console.log("Blocked words updated:", updatedWords);
 
             // Update the display
@@ -203,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((error) => {
                 console.error("Erreur lors du chargement du JSON:", error);
             });
-        console.log("fetchjson data excecuted");
     });
 });
 

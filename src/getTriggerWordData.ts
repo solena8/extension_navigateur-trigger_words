@@ -1,11 +1,8 @@
-let jsonData: string;
-
 export function fetchJSONData(): Promise<any> {
 
     return fetch(chrome.runtime.getURL("./assets/trigger_db.json"))
         .then((response) => response.json())
         .then((data) => {
-            jsonData = data.categories;
             return data.categories;
         })
         .catch((error) => {
@@ -21,7 +18,7 @@ export function displayTriggerCategorie(data: object) {
         for (const [index, [key]] of Object.entries(Object.entries(data))) {
             categorieParagraph.innerHTML += `
                 <div>
-                    <input type="checkbox" id="trigger-${index}" name="categorie"/>
+                    <input type="checkbox" id="${key}" name="categorie"/>
                     <label for="categorie">
                         <button class="subCategorie" id="${key}">${key}</button>
                     </label>
@@ -29,6 +26,8 @@ export function displayTriggerCategorie(data: object) {
                 </div>
                 </br>`;
         }
+        categorieParagraph.innerHTML += `<button id="validateOptionButton">Valider la sélection</button>`;
+
         document
             .getElementById("trigger_list")!
             .appendChild(categorieParagraph);
@@ -40,12 +39,18 @@ export function displayTriggerCategorie(data: object) {
 const buttonGroupPressed = (e: any) => {
     const isButton = e.target.nodeName === "BUTTON";
 
-    if (!isButton) {
-        return;
-    }
+    if (!isButton) { return; }
 
     let getName: string;
     getName = e.target.id;
+
+    if (getName === "validateOptionButton") {
+        var checkboxList = document.querySelectorAll('input[type=checkbox]:checked');
+        let formattedCheckboxList = Array.from(checkboxList).map(checkbox => checkbox.id);
+        formattedCheckboxList.pop();
+        console.log(formattedCheckboxList);
+        return;
+    }
 
     fetchJSONData()
         .then((jsonData) => {
@@ -63,15 +68,6 @@ function afficherSousCategorie(jsonData: any, categorieCible: string) {
     if (jsonData.hasOwnProperty(categorieCible)) {
         const sousCategories = jsonData[categorieCible];
 
-        console.log(`sub-${categorieCible}`);
-
-        console.log(
-            document.getElementById(`sub-${categorieCible}`)!.childNodes
-        ); // Pour voir tous les nœuds enfants
-        console.log(
-            document.getElementById(`sub-${categorieCible}`)!.hasChildNodes()
-        );
-
         if (
             !document.getElementById(`sub-${categorieCible}`)!.hasChildNodes()
         ) {
@@ -82,7 +78,7 @@ function afficherSousCategorie(jsonData: any, categorieCible: string) {
             )) {
                 sousCategorieParagraph.innerHTML += `
                         <div>
-                            <input type="checkbox" id="subTrigger-${key}" name="categorie"/>
+                            <input type="checkbox" id="${key}" name="categorie"/>
                             <label for="categorie">${key}</label>
                         </div>
                         </br>`;
@@ -91,8 +87,6 @@ function afficherSousCategorie(jsonData: any, categorieCible: string) {
                 .getElementById(`sub-${categorieCible}`)!
                 .appendChild(sousCategorieParagraph);
         } else {
-            console.log("youpi?");
-
             document.getElementById(`sub-${categorieCible}`)!.innerHTML = ``;
         }
     } else {
