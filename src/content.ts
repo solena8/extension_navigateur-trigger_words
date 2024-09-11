@@ -1,7 +1,5 @@
 import { blurrImages } from "./blurr_images";
 
-
-
 export function blockWords() {
     let hasBlockedWords = false;
     let blockedWordCount = 0; // Counter for blocked words
@@ -67,11 +65,10 @@ export function blockWords() {
         // If blocked words were found, show an alert
         if (hasBlockedWords) {
             alert(`Cette page contient ${blockedWordCount} mot(s) bloqué(s) !`);
-        }
-
-        // Call blurrImages if the blur button is toggled
-        if (isBlurToggled) {
-            blurrImages();
+            // Call blurrImages if the blur button is toggled
+            if (isBlurToggled) {
+                blurrImages();
+            }
         }
     });
 }
