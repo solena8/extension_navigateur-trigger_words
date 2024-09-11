@@ -1,5 +1,5 @@
 import { fetchJSONData } from "./getTriggerWordData";
-import { afficherAvis } from "./getTriggerWordData";
+import { displayTriggerCategorie } from "./getTriggerWordData";
 import { blockWords } from "./content";
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -208,22 +208,22 @@ document.addEventListener("DOMContentLoaded", () => {
 // Display words when the popup opens
 displaySavedWords();
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const showOption = document.getElementById(
         "showTriggerOption"
     ) as HTMLButtonElement;
 
     showOption.addEventListener("click", () => {
-        fetchJSONData()
-            .then((data) => {
-                const header = document.getElementById("trigger_list");
-                if (header) {
-                    afficherAvis(data);
-                }
-            })
-            .catch((error) => {
-                console.error("Erreur lors du chargement du JSON:", error);
-            });
+
+        fetchJSONData().then(data => {
+            const header = document.getElementById('trigger_list');
+            if (header) {
+                displayTriggerCategorie(data);
+            }
+        }).catch(error => {
+            console.error('Erreur lors du chargement du JSON:', error);
+        });
     });
 });
 
