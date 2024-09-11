@@ -1,20 +1,20 @@
 let jsonData: string;
 
 export function fetchJSONData(): Promise<any> {
-    return fetch(chrome.runtime.getURL('../assets/trigger_db.json'))
-        .then(response => response.json())
-        .then(data => {
+
+    return fetch(chrome.runtime.getURL("./assets/trigger_db.json"))
+        .then((response) => response.json())
+        .then((data) => {
             jsonData = data.categories;
             return data.categories;
         })
-        .catch(error => {
-            console.error('Erreur lors du chargement du JSON:', error);
+        .catch((error) => {
+            console.error("Erreur lors du chargement du JSON:", error);
             throw error;
         });
 }
 
 export function displayTriggerCategorie(data: object) {
-
     if (document.getElementById("trigger_list")!.innerHTML === ``) {
         const categorieParagraph = document.createElement("p");
 
@@ -29,49 +29,57 @@ export function displayTriggerCategorie(data: object) {
                 </div>
                 </br>`;
         }
-        document.getElementById("trigger_list")!.appendChild(categorieParagraph);
+        document
+            .getElementById("trigger_list")!
+            .appendChild(categorieParagraph);
     } else {
         document.getElementById("trigger_list")!.innerHTML = ``;
     }
-
 }
 
 const buttonGroupPressed = (e: any) => {
-
-    const isButton = e.target.nodeName === 'BUTTON';
+    const isButton = e.target.nodeName === "BUTTON";
 
     if (!isButton) {
-        return
+        return;
     }
 
     let getName: string;
     getName = e.target.id;
 
-    fetchJSONData().then(jsonData => {
-        afficherSousCategorie(jsonData, getName);
-    }).catch(error => {
-        console.error('Erreur lors du chargement du JSON:', error);
-    });
-}
+    fetchJSONData()
+        .then((jsonData) => {
+            afficherSousCategorie(jsonData, getName);
+        })
+        .catch((error) => {
+            console.error("Erreur lors du chargement du JSON:", error);
+        });
+};
 
 const buttonGroup = document.getElementById("trigger_list");
 buttonGroup!.addEventListener("click", buttonGroupPressed);
 
 function afficherSousCategorie(jsonData: any, categorieCible: string) {
-
     if (jsonData.hasOwnProperty(categorieCible)) {
         const sousCategories = jsonData[categorieCible];
 
         console.log(`sub-${categorieCible}`);
 
-        console.log(document.getElementById(`sub-${categorieCible}`)!.childNodes);  // Pour voir tous les nœuds enfants
-        console.log(document.getElementById(`sub-${categorieCible}`)!.hasChildNodes());
+        console.log(
+            document.getElementById(`sub-${categorieCible}`)!.childNodes
+        ); // Pour voir tous les nœuds enfants
+        console.log(
+            document.getElementById(`sub-${categorieCible}`)!.hasChildNodes()
+        );
 
-        if (!document.getElementById(`sub-${categorieCible}`)!.hasChildNodes()) {
-
+        if (
+            !document.getElementById(`sub-${categorieCible}`)!.hasChildNodes()
+        ) {
             const sousCategorieParagraph = document.createElement("p");
 
-            for (const [index, [key]] of Object.entries(Object.entries(sousCategories))) {
+            for (const [index, [key]] of Object.entries(
+                Object.entries(sousCategories)
+            )) {
                 sousCategorieParagraph.innerHTML += `
                         <div>
                             <input type="checkbox" id="subTrigger-${key}" name="categorie"/>
@@ -79,14 +87,14 @@ function afficherSousCategorie(jsonData: any, categorieCible: string) {
                         </div>
                         </br>`;
             }
-            document.getElementById(`sub-${categorieCible}`)!.appendChild(sousCategorieParagraph);
+            document
+                .getElementById(`sub-${categorieCible}`)!
+                .appendChild(sousCategorieParagraph);
         } else {
-            console.log('youpi?');
+            console.log("youpi?");
 
             document.getElementById(`sub-${categorieCible}`)!.innerHTML = ``;
         }
-
-
     } else {
         console.error(`Catégorie "${categorieCible}" non trouvée.`);
     }

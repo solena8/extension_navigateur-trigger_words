@@ -36,6 +36,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    margin-right: 8px;
 }
 
 button:hover {
@@ -57,7 +58,7 @@ button:hover {
     border: 2px solid #8ab4f8;
     border-radius: 10px;
 }
-#saveBlockedWords {
+#saveBlockedWords, #floutage  {
     padding: 5px 10px; /* Réduction du padding */
     background-color: #8ab4f8;
     color: white;
@@ -100,7 +101,7 @@ button:hover {
     display: inline-block;
     width: 30px;
     height: 17px;
-    margin-left: 6px;
+    margin-left: 5px;
   }
   
   /* Hide default HTML checkbox */
