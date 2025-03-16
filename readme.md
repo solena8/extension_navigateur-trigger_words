@@ -1,1 +1,1 @@
-Pour transpiler : se placer dans le dossier racine et lancer la commande "npm run build"
+This navigator extension allows you to choose trigger words and hide them in all web pages.
